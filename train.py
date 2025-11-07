@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from datareader import get_data_loaders, NEW_CLASS_NAMES
-from resnet import ResNet18
+from EfficientNet_B0 import EfficientNetB0
 import matplotlib.pyplot as plt
 from utils import plot_training_history, visualize_random_val_predictions
 
@@ -20,7 +20,7 @@ def train():
     train_loader, val_loader, num_classes, in_channels = get_data_loaders(BATCH_SIZE)
     
     # 2. Inisialisasi Model
-    model = DenseNet121(in_channels=in_channels, num_classes=num_classes)
+    model = EfficientNetB0(in_channels=in_channels, num_classes=num_classes)
     print(model)
     
     # 3. Mendefinisikan Loss Function dan Optimizer
