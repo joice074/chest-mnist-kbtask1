@@ -6,7 +6,7 @@ from torchvision.datasets import ImageFolder
 import torch.optim as optim
 import os
 
-from densenet import DenseNet121
+from resnet import ResNet18
 
 # ============================================================
 # 1️⃣ Cek GPU
@@ -38,12 +38,12 @@ print(f"Jumlah data training: {len(train_data)}")
 print(f"Jumlah data validasi: {len(val_data)}")
 
 # ============================================================
-# 3️⃣ Load Model DenseNet121
+# 3️⃣ Load Model ResNet18
 # ============================================================
 num_classes = 2
-model = DenseNet121(in_channels=1, num_classes=num_classes)
+model = ResNet18(in_channels=1, num_classes=num_classes)
 model = model.to(device)
-print("\nModel DenseNet121 berhasil dibuat!\n")
+print("\nModel ResNet18 berhasil dibuat!\n")
 
 # ============================================================
 # 4️⃣ Definisi Loss dan Optimizer
@@ -103,5 +103,5 @@ train_model(model, train_loader, val_loader, criterion, optimizer, epochs=5)
 # ============================================================
 # 8️⃣ Simpan Model
 # ============================================================
-torch.save(model.state_dict(), "DenseNet121_ChestMNIST.pth")
-print("Model telah disimpan: DenseNet121_ChestMNIST.pth")
+torch.save(model.state_dict(), "ResNet18_ChestMNIST.pth")
+print("Model telah disimpan: ResNet18_ChestMNIST.pth")

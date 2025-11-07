@@ -4,13 +4,13 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from datareader import get_data_loaders, NEW_CLASS_NAMES
-from EfficientNet_B0 import EfficientNetB0
+from resnet import ResNet18
 import matplotlib.pyplot as plt
 from utils import plot_training_history, visualize_random_val_predictions
 
 # --- Hyperparameter ---
-EPOCHS = 16
-BATCH_SIZE = 16
+EPOCHS = 25
+BATCH_SIZE = 25
 LEARNING_RATE = 0.0003
 
 #Menampilkan plot riwayat training dan validasi setelah training selesai.
@@ -20,7 +20,7 @@ def train():
     train_loader, val_loader, num_classes, in_channels = get_data_loaders(BATCH_SIZE)
     
     # 2. Inisialisasi Model
-    model = EfficientNetB0(in_channels=in_channels, num_classes=num_classes)
+    model = ResNet18(in_channels=in_channels, num_classes=num_classes)
     print(model)
     
     # 3. Mendefinisikan Loss Function dan Optimizer
