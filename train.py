@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from datareader import get_data_loaders, NEW_CLASS_NAMES
-from densenet import DenseNet121
+from resnet import ResNet18
 import matplotlib.pyplot as plt
 from utils import plot_training_history, visualize_random_val_predictions
 
@@ -108,4 +108,3 @@ def train():
 
 if __name__ == '__main__':
     train()
-    
